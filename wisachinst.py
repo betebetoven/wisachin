@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from openai.embeddings_utils import get_embedding
 from openai.embeddings_utils import cosine_similarity
-import winsound
+
 import time
 import streamlit as st
 
