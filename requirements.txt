@@ -2,3 +2,6 @@ numpy==1.23.1
 openai==0.26.2
 pandas==1.4.3
 streamlit==1.15.2
+matplotlib==3.7.0
+plotly==5.13.0
+scikit-learn==1.2.1
