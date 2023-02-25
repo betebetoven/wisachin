@@ -3,30 +3,32 @@ import pandas as pd
 import numpy as np
 from openai.embeddings_utils import get_embedding
 from openai.embeddings_utils import cosine_similarity
+import winsound
 import time
 import streamlit as st
 
-openai.api_key ="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"
+openai.api_key ="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"
 
 
 #earnings_df = pd.read_csv('ccmitad.csv')
 #earnings_df['embedding'] = earnings_df['CONSTITUCION'].apply(lambda x: get_embedding(x, engine='text-embedding-ada-002'))
 #earnings_df.to_csv('ccmitad_emb.csv')
-"""earnings_df = pd.read_csv('cc.csv')
+earnings_df = pd.read_csv('ct2.csv')
 embeddings = []
-for item in earnings_df['CONSTITUCION']:
-    embedding = get_embedding(item, engine='text-embedding-ada-002')
+for item in earnings_df['CT']:
     time.sleep(1)
+    embedding = get_embedding(item, engine='text-embedding-ada-002')
+    time.sleep(1.5)
     embeddings.append(embedding)
 earnings_df['embedding'] = embeddings
-earnings_df.to_csv('ccmitad_emb2.csv')"""
+earnings_df.to_csv('ct2_emb.csv')
+winsound.Beep(frequency=222, duration=1000)
 
 
-
-
+"""
 earnings_df = pd.read_csv('ccmitad_emb2.csv')
 earnings_df['embedding'] = earnings_df['embedding'].apply(eval).apply(np.array)
-#winsound.Beep(frequency=222, duration=1000)
+#
 earnings_search = input("Search earnings for a sentence:")
 earnings_search_vector = get_embedding(earnings_search, engine="text-embedding-ada-002")
 earnings_df["similarities"] = earnings_df['embedding'].apply(lambda x: cosine_similarity(x, earnings_search_vector))
@@ -41,12 +43,8 @@ k.head(20).to_csv("output.txt", columns=["CONSTITUCION"], index=False, header=Fa
 #earnings_df["similarities"] = earnings_df['embedding'].apply(lambda x: cosine_similarity(x, earnings_search_vector))
 #k = earnings_df.sort_values("similarities", ascending=False)
 #st.table(k.head(20))
-
+"""
 
     
 
 
-def process_item(item):
-    embedding = get_embedding(item, engine='text-embedding-ada-002')
-    time.sleep(1)
-    return embedding
